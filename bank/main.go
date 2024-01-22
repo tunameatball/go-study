@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/go-study/bank/accounts"
 )
@@ -10,12 +9,14 @@ import (
 func main() {
 	account := accounts.NewAccount("kkh")
 	account.Deposit(10)
-	fmt.Println(account.Balance())
+
 	err := account.Withdraw(20)
 
 	if err != nil {
-		log.Fatalln(err)
+		// log.Fatalln(err)
+		fmt.Println(err)
 	}
 
-	fmt.Println(account.Balance())
+	fmt.Println(account.Balance(), account.Owner())
+	fmt.Println(account.String())
 }
